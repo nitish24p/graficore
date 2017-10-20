@@ -1,36 +1,9 @@
+'use strict';
+
 const arrayColors = ['#39f7ed', '#2e0087', '#fff', '#8af5ef',
   '#aaefeb', '#9e6ef9', '#eaeaea', '#7f45ec',
   '#def3f2', '#cebaf5'
   ];
-
-const squares = document.querySelectorAll('.square');
-
-squares.forEach((sq) => {
-  sq.addEventListener('click', handlerClick)
-})
-
-function handlerClick(event) {
-  const height = event.target.offsetHeight;
-  const width = event.target.offsetWidth;
-
-  const widthChild = width / 2;
-  for(var i =1 ; i <= 4; i++) {
-     const childElem = document.createElement("div");
-    childElem.className = 'base-style-class';
-    childElem.style.width = '50%';
-    childElem.style.height = '50%';
-    childElem.style.borderWidth = '1px';
-    childElem.style.borderStyle = 'solid';
-    childElem.style.borderColor = 'rgb(212, 212, 212)';
-    //childElem.style.background = arrayColors[Math.floor(Math.random() * arrayColors.length)];
-    childElem.addEventListener('click', handlerClick);
-
-    event.target.appendChild(childElem)
-  }
-  
-  event.stopPropagation()
-  
-}
 
 function Grid () {
   this.gridArray = [ 1, 2, 3, 4];
@@ -43,6 +16,12 @@ function Grid () {
     'quarterTopRight',
     'quarterBottomLeft',
     'quarterBottomRight',
+    'BLANK',
+    'BLANK',
+    'BLANK',
+    'BLANK',
+    'BLANK',
+    'BLANK',
     'BLANK',
     'FILL',
     ];
