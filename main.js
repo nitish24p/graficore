@@ -43,6 +43,8 @@ function Grid () {
     'quarterTopRight',
     'quarterBottomLeft',
     'quarterBottomRight',
+    'BLANK',
+    'FILL',
     ];
 }
 
@@ -118,16 +120,22 @@ Grid.prototype.colorGrid = function() {
   //cellElement.style.background = arrayColors[Math.floor(Math.random() * arrayColors.length)];
   const shape = this.shapeArray[Math.floor(Math.random() * this.shapeArray.length)];
   console.log(shape);
-  const quarter = this.shape[shape](arrayColors[Math.floor(Math.random() * arrayColors.length)]);
+  if (shape === 'BLANK' ) {
+    cellElement.style.background = arrayColors[2]; // white
+  } else if (shape === 'FILL') {
+    cellElement.style.background = arrayColors[Math.floor(Math.random() * arrayColors.length)];
+  } else {
+    const quarter = this.shape[shape](arrayColors[Math.floor(Math.random() * arrayColors.length)]);
+    cellElement.appendChild(quarter);
+  }
+  
 
   this.gridArray = this.gridArray.slice(0, cellIndex).concat(this.gridArray.slice(cellIndex + 1));
-
-
   cellElement.style.borderStyle = 'none';
   cellElement.parentNode.style.borderStyle = 'none'
 
 
-  cellElement.appendChild(quarter);
+  //cellElement.appendChild(quarter);
   this.colorGrid();
 
 }
