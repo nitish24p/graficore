@@ -4,7 +4,7 @@ Create awesome patterns using simple shapes and a quad tree
 
 ### Sample
 
-![screenshot](https://github.com/nitish24p/graficore/blob/master/images/art_v1.png?raw=true?raw=true)
+![screenshot](https://github.com/nitish24p/graficore/blob/master/images/art_v2.png?raw=true?raw=true)
 
 **TODO**
 
@@ -15,3 +15,6 @@ Give a list of shapes to chose from
 Colour picker for colour list
 
 Option to download
+
+
+Convert to electron app
