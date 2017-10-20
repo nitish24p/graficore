@@ -42,7 +42,8 @@ function Grid () {
     'quarterTopLeft',
     'quarterTopRight',
     'quarterBottomLeft',
-    'quarterBottomRight'];
+    'quarterBottomRight',
+    ];
 }
 
 
