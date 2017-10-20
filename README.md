@@ -4,7 +4,7 @@ Create awesome patterns using simple shapes and a quad tree
 
 ### Sample
 
-![screenshot](https://github.com/nitish24p/graficore/blob/master/images/art.png?raw=true?raw=true)
+![screenshot](https://github.com/nitish24p/graficore/blob/master/images/art_v1.png?raw=true?raw=true)
 
 **TODO**
 
