@@ -34,6 +34,16 @@ function handlerClick(event) {
 
 function Grid () {
   this.gridArray = [ 1, 2, 3, 4];
+  this.shape = new shapeGenerator();
+  this.shapeArray = [
+    'circle',
+    'paralleogram1',
+    'paralleogram2',
+    'quarterTopLeft',
+    'quarterTopRight',
+    'quarterBottomLeft',
+    'quarterBottomRight',
+    ];
 }
 
 
@@ -92,24 +102,35 @@ Grid.prototype.clickCell = function(event) {
 Grid.prototype.colorGrid = function() {
   // Main Algo + Business logic
   if (this.gridArray.length === 0) {
+    const marginElements = document.querySelectorAll('.base-style-class');
+    marginElements.forEach(function(element) {
+      //console.log(element.style)
+      element.style.margin = '0px';
+    })
     return;
   }
   console.log("CALLING", this.gridArray);
-  const self = this;
   let maxValue = Math.max.apply(this, this.gridArray); 
   const cellIndex = this.gridArray.indexOf(parseInt(maxValue, 10));
 
   const cellElement = document.querySelector('[data-index="' + maxValue + '"]');
 
-  cellElement.style.background = arrayColors[Math.floor(Math.random() * arrayColors.length)];
+  //cellElement.style.background = arrayColors[Math.floor(Math.random() * arrayColors.length)];
+  const shape = this.shapeArray[Math.floor(Math.random() * this.shapeArray.length)];
+  console.log(shape);
+  const quarter = this.shape[shape](arrayColors[Math.floor(Math.random() * arrayColors.length)]);
+
   this.gridArray = this.gridArray.slice(0, cellIndex).concat(this.gridArray.slice(cellIndex + 1));
 
-  setInterval(function(){
-    self.colorGrid();
-  }, 1000)
+
+  cellElement.style.borderStyle = 'none';
+  cellElement.parentNode.style.borderStyle = 'none'
+
+
+  cellElement.appendChild(quarter);
+  this.colorGrid();
+
 }
-
-
 
 window.onload = function() {
   window.grid = new Grid();
