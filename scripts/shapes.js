@@ -12,7 +12,7 @@ shapeGenerator.prototype.circle= function(backgroundColor) {
   return circleElement;
 }
 
-shapeGenerator.prototype.paralleogram1 = function(backgroundColor) {
+shapeGenerator.prototype.parallelogram1 = function(backgroundColor) {
   const paralleogram = document.createElement("div");
   paralleogram.className = 'parallelogram1';
   paralleogram.style.background = backgroundColor;
@@ -20,7 +20,7 @@ shapeGenerator.prototype.paralleogram1 = function(backgroundColor) {
   return paralleogram;
 }
 
-shapeGenerator.prototype.paralleogram2 = function(backgroundColor) {
+shapeGenerator.prototype.parallelogram2 = function(backgroundColor) {
   const paralleogram = document.createElement("div");
   paralleogram.className = 'parallelogram2';
   paralleogram.style.background = backgroundColor;
