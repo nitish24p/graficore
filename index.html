@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Graficore</title>
 
 	<style>
 		.square {
@@ -30,11 +30,10 @@
 		.checkboxes {
 			float: left;
 			padding: 20px;
+			width: 25%
 		}
 
 		.base-style-class {
-		   //border: 1px solid #eaeaea;
-		  //background:red;
 		  display: inline-block;
 		  float:left;
 		  box-sizing: content-box;
@@ -260,12 +259,19 @@
 				</p>
 
 			</form>
+
+			<div class="color-picker">
+				<a class="waves-effect waves-light btn add-color-picker">Add A Color</a>
+				<input class="jscolor" /">
+
+			</div>
 		</div>
 		
 	</div>
 
 
 <script type="text/javascript" src="./scripts/dom-to-image.js"></script>
+<script type="text/javascript" src="./scripts/jscolor.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script type="text/javascript" src="./scripts/shapes.js"></script>
