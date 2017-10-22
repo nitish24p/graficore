@@ -20,6 +20,9 @@ function Grid () {
     'colorFill',
     ];
 
+  this.colorArray = [];
+
+
   /* Slider Dom Elements */
   this.circleSlider = document.querySelector('#circle');
   this.parallelogram1Slider = document.querySelector('#parallelogram1');
@@ -30,6 +33,8 @@ function Grid () {
   this.quarterBottomRightSlider = document.querySelector('#quarterBottomRight');
   this.blankSlider = document.querySelector('#blank');
   this.colorFillSlider = document.querySelector('#colorFill');
+
+  /*Color DOM ELEMENT */
 
 
   /* Checkbox Dom Elements */
@@ -42,6 +47,11 @@ function Grid () {
   this.quarterBottomRightCheckBox = document.querySelector('#quarterBottomRight-check');
   this.blankCheckBox = document.querySelector('#blank-check');
   this.colorFillCheckBox = document.querySelector('#colorFill-check');
+
+
+  this.addColorPicker = document.querySelector('.add-color-picker');
+
+  this.colorPickerList = document.querySelector('.color-picker');
 
 }
 
@@ -73,6 +83,7 @@ Grid.prototype.init = function() {
   this.colorFillSlider.addEventListener('change', this.onChangeSlider.bind(this));
 
 
+
   // Bind Listeners to Checkbox
   this.circleCheckBox.addEventListener('change', this.onCheckBoxChecked.bind(this));
   this.parallelogram1CheckBox.addEventListener('change', this.onCheckBoxChecked.bind(this));
@@ -83,20 +94,33 @@ Grid.prototype.init = function() {
   this.quarterBottomRightCheckBox.addEventListener('change', this.onCheckBoxChecked.bind(this));
   this.blankCheckBox.addEventListener('change', this.onCheckBoxChecked.bind(this));
   this.colorFillCheckBox.addEventListener('change', this.onCheckBoxChecked.bind(this));
+
+  this.addColorPicker.addEventListener('click', this.addColor.bind(this));
+}
+
+Grid.prototype.addColor = function() {
+  const color = this.shape.colorPicker();
+  color.addEventListener('change', this.onColorChange.bind(this));
+  this.colorPickerList.appendChild(color);
+  window.jscolor.installByClassName('jscolor')
+}
+
+Grid.prototype.onColorChange = function(event) {
+  console.log(event.defaultValue)
+  console.log(event.target.value);
+  console.log(event.target);
+  console.log(event);
 }
 
 Grid.prototype.onCheckBoxChecked = function(event) {
   const shape = event.target.dataset.shape;
   const checked = event.target.checked;
   const el = shape + 'Slider';
-
   const sliderElement = this[el];
-  //this.setAttribute('hidden', 'true');
+
   if (checked) {
     sliderElement.parentNode.removeAttribute('hidden');
     this.shapeArray = this.shapeArray.concat([shape]);
-    // Add element to array
-    // Remove hidden Attr
   } else {
     if (this.shapeArray.length === 1) {
       // SHOW DOM ELEMENT TO SHOW ATLEAST 1 shape
@@ -105,10 +129,7 @@ Grid.prototype.onCheckBoxChecked = function(event) {
     this.shapeArray = this.shapeArray.filter(function(existingElement) {
       return existingElement !== shape;
     });
-    // Remove element from array
-    // Add hidden Attr
   }
-  // Hide
 }
 
 Grid.prototype.onChangeSlider = function(event) {
