@@ -18,6 +18,18 @@
 		  height: 600px;
 		  box-sizing: content-box;
 		  border: 1px solid #eaeaea;
+		  float: left
+		}
+
+		.settings-container {
+		  float: left;
+		  padding: 20px;
+		  width: 25%;
+		}
+
+		.checkboxes {
+			float: left;
+			padding: 20px;
 		}
 
 		.base-style-class {
@@ -145,15 +157,118 @@
 
 
 	</style>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
 <body>
 
-  <button class="button">TRY COLOURING ME</button>
+	<nav>
+	  <div class="nav-wrapper grey darken-3">
+	    <a href="/" class="brand-logo">Graficore</a>
+	  </div>
+	</nav>
 
-  <div class="new-parent">
-  </div>
+	<div class="container-fluid">
+		<div class="new-parent">
+   		</div>
 
-<script type="text/javascript" src="./shapes.js"></script>
-<script type="text/javascript" src="./main.js"></script>
+		<div class="settings-container">
+			<p class="range-field">
+				<label for="circle">Circle Weightage</label>
+			    <input type="range" value="1" id="circle" min="1" max="10" />
+			</p> 
+
+			<p class="range-field">
+				<label for="parallelogram1">Paralellogram 1</label>
+			    <input type="range" value="1" id="parallelogram1" min="1" max="10" />
+			</p> 
+
+			<p class="range-field">
+				<label for="parallelogram2">Paralellogram 2</label>
+			    <input type="range" value="1" id="parallelogram2" min="1" max="10" />
+			</p> 
+
+			<p class="range-field">
+				<label for="quarterTopLeft">quarterTopLeft </label>
+			    <input type="range" value="1" id="quarterTopLeft" min="1" max="10" />
+			</p> 
+
+			<p class="range-field">
+				<label for="quarterTopRight">quarterTopRight </label>
+			    <input type="range" value="1" id="quarterTopRight" min="1" max="10" />
+			</p> 
+
+			<p class="range-field">
+				<label for="quarterBottomLeft">quarterBottomLeft</label>
+			    <input type="range" value="1" id="quarterBottomLeft" min="1" max="10" />
+			</p> 
+
+			<p class="range-field">
+				<label for="quarterBottomRight">quarterBottomRight</label>
+			    <input type="range" value="1" id="quarterBottomRight" min="1" max="10" />
+			</p> 
+
+			<p class="range-field">
+				<label for="colorFill">color Fill</label>
+			    <input type="range" value="1" id="colorFill" min="1" max="10" />
+			</p> 
+
+			<p class="range-field">
+				<label for="blank">Blank space weightage</label>
+			    <input type="range" value="1" id="blank" min="1" max="10" />
+			</p> 
+		</div>
+
+		<div class="checkboxes">
+			<a class="waves-effect waves-light btn button">Generate Pattern</a>	
+			<form action="#">
+			  <p>
+			    <input type="checkbox" id="circle-check" data-shape='circle' checked="true" name="circle" />
+			    <label for="circle-check">Circle</label>
+			  </p>
+			  <p>
+			    <input type="checkbox" id="parallelogram1-check" data-shape='parallelogram1' checked="true" />
+			    <label for="parallelogram1-check">Parallelogram 1</label>
+			  </p>
+			  <p>
+			    <input type="checkbox" id="parallelogram2-check" data-shape='parallelogram2' checked="true" />
+			    <label for="parallelogram2-check">Parallelogram 2</label>
+			  </p>
+			  <p>
+			   <input type="checkbox" id="quarterTopRight-check" data-shape='quarterTopRight' checked="true" />
+			    <label for="quarterTopRight-check">Top Right Quarter</label>
+			  </p>
+			  <p>
+			    <input type="checkbox" id="quarterTopLeft-check"  data-shape='quarterTopLeft' checked="true"/>
+			    <label for="quarterTopLeft-check">Top Left Quarter</label>
+			  </p>
+			  <p>
+			    <input type="checkbox" id="quarterBottomLeft-check" data-shape='quarterBottomLeft' checked="true" />
+			    <label for="quarterBottomLeft-check">Bottom Left Quarter</label>
+			  </p>
+			   <p>
+			    <input type="checkbox" id="quarterBottomRight-check"  data-shape='quarterBottomRight' checked="true"/>
+			    <label for="quarterBottomRight-check">Bottom Right Quarter</label>
+			  </p>
+				 <p>
+				  <input type="checkbox" id="colorFill-check" data-shape='colorFill' checked="true"/>
+				  <label for="colorFill-check">Color Fill</label>
+				</p>
+
+				 <p>
+				  <input type="checkbox" id="blank-check" data-shape='blank' checked="true" />
+				  <label for="blank-check">Blank</label>
+				</p>
+
+			</form>
+		</div>
+		
+	</div>
+
+
+<script type="text/javascript" src="./scripts/dom-to-image.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="./scripts/shapes.js"></script>
+<script type="text/javascript" src="./scripts/main.js"></script>
 </body>
 </html>
