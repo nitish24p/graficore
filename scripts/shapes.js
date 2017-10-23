@@ -83,7 +83,7 @@ shapeGenerator.prototype.quarterBottomRight = function(backgroundColor) {
 shapeGenerator.prototype.colorPicker = function() {
   const colorPicker = document.createElement('input');
   colorPicker.className = 'jscolor';
-  colorPicker.defaultValue = 'FFFFFF';
+  colorPicker.setAttribute('prevvalue', 'FFFFFF');
 
   return colorPicker;
 }

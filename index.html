@@ -67,31 +67,24 @@
 			height:50%;
 			transition:background-color 0.2s ease-in-out;
 		}
-		.quarter:hover {
-			background-color:pink;
-		}
 		.quarter1 {
 			top:0;
 			left:0;
-			background-color:red;
 			border-radius:100% 0 0 0;
 		}
 		.quarter2 {
 			top:0;
 			right:0;
-			background-color:blue;
 			border-radius:0 100% 0 0 ;
 		}
 		.quarter3 {
 			bottom:0;
 			left:0;
-			background-color:orange;
 			border-radius:0 0 0 100%;
 		}
 		.quarter4 {
 			bottom:0;
 			right:0;
-			background-color:green;
 			border-radius:0 0 100% 0 ;
 		}
 		.cutout {
@@ -154,6 +147,9 @@
 		  transform:    translateX(50%) skewX(26deg);
 		}
 
+		.download-btn {
+			margin-top: 10px
+		}
 
 	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
@@ -218,7 +214,9 @@
 		</div>
 
 		<div class="checkboxes">
-			<a class="waves-effect waves-light btn button">Generate Pattern</a>	
+			<a class="waves-effect waves-light btn button">Generate Pattern</a>
+			<div class="download-btn"><a class="waves-effect waves-light btn download grey darken-3"">Save Pattern</a></div>
+				
 			<form action="#">
 			  <p>
 			    <input type="checkbox" id="circle-check" data-shape='circle' checked="true" name="circle" />
@@ -262,7 +260,6 @@
 
 			<div class="color-picker">
 				<a class="waves-effect waves-light btn add-color-picker">Add A Color</a>
-				<input class="jscolor" /">
 
 			</div>
 		</div>

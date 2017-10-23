@@ -50,8 +50,9 @@ function Grid () {
 
 
   this.addColorPicker = document.querySelector('.add-color-picker');
-
   this.colorPickerList = document.querySelector('.color-picker');
+  this.downloadBtn = document.querySelector('.download');
+
 
 }
 
@@ -96,6 +97,20 @@ Grid.prototype.init = function() {
   this.colorFillCheckBox.addEventListener('change', this.onCheckBoxChecked.bind(this));
 
   this.addColorPicker.addEventListener('click', this.addColor.bind(this));
+  this.downloadBtn.addEventListener('click', this.downloadImage.bind(this));
+}
+
+Grid.prototype.downloadImage = function() {
+  const node = document.querySelector('.new-parent');
+  domtoimage.toPng(node)
+  .then(function(dataUrl){
+    const link = document.createElement('a')
+    link.download = 'graficore.png'
+    link.href = dataUrl
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+  });
 }
 
 Grid.prototype.addColor = function() {
@@ -103,13 +118,19 @@ Grid.prototype.addColor = function() {
   color.addEventListener('change', this.onColorChange.bind(this));
   this.colorPickerList.appendChild(color);
   window.jscolor.installByClassName('jscolor')
+  this.colorArray = this.colorArray.concat(['#FFFFFF']);
 }
 
 Grid.prototype.onColorChange = function(event) {
-  console.log(event.defaultValue)
-  console.log(event.target.value);
-  console.log(event.target);
-  console.log(event);
+  const prevvalue = event.target.getAttribute('prevvalue');
+  const newValue = event.target.value;
+  const prevvalueIndex = this.colorArray.indexOf('#' + prevvalue);
+
+  // Make the below immutable
+
+  this.colorArray[prevvalueIndex] = '#' + newValue;
+
+  event.target.setAttribute('prevvalue', event.target.value)
 }
 
 Grid.prototype.onCheckBoxChecked = function(event) {
@@ -136,7 +157,6 @@ Grid.prototype.onChangeSlider = function(event) {
   const shape = event.target.id;
   const newValue = event.target.value;
   const oldValue = countInArray.call(this, this.shapeArray, shape);
-  console.log(newValue, oldValue);
   // Clear Array
   this.shapeArray = this.shapeArray.filter(function(existingElement) {
     return existingElement !== shape;
@@ -161,7 +181,6 @@ Grid.prototype.clickCell = function(event) {
   }
   this.gridArray = this.gridArray.slice(0, cellIndex).concat(newArray).concat(this.gridArray.slice(cellIndex + 1));
 
-  console.log(this.gridArray)
 
   // Function to create child Grids
   const height = event.target.offsetHeight;
@@ -186,7 +205,6 @@ Grid.prototype.clickCell = function(event) {
 }
 
 Grid.prototype.generatePattern = function() {
-  console.log(this.shapeArray);
   // Main Algo + Business logic
   if (this.gridArray.length === 0) {
     const marginElements = document.querySelectorAll('.base-style-class');
@@ -207,11 +225,11 @@ Grid.prototype.generatePattern = function() {
   const shape = this.shapeArray[Math.floor(Math.random() * this.shapeArray.length)];
 
   if (shape === 'blank' ) {
-    cellElement.style.background = arrayColors[2]; // white
+    cellElement.style.background = 'transparent'; // white
   } else if (shape === 'colorFill') {
-    cellElement.style.background = arrayColors[Math.floor(Math.random() * arrayColors.length)];
+    cellElement.style.background = this.colorArray[Math.floor(Math.random() * this.colorArray.length)];
   } else {
-    const quarter = this.shape[shape](arrayColors[Math.floor(Math.random() * arrayColors.length)]);
+    const quarter = this.shape[shape](this.colorArray[Math.floor(Math.random() * this.colorArray.length)]);
     cellElement.appendChild(quarter);
   }
   
@@ -221,7 +239,6 @@ Grid.prototype.generatePattern = function() {
   // cellElement.parentNode.style.borderStyle = 'none'
 
 
-  //cellElement.appendChild(quarter);
   this.generatePattern();
 
 }
