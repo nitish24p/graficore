@@ -21,6 +21,7 @@ function Grid () {
     ];
 
   this.colorArray = [];
+  this.gridCopy = []
 
 
   /* Slider Dom Elements */
@@ -206,6 +207,11 @@ Grid.prototype.clickCell = function(event) {
 
 Grid.prototype.generatePattern = function() {
   // Main Algo + Business logic
+  if (!this.pattenGenerationStarted) {
+    this.gridDOMCOPY = document.querySelector('.new-parent').innerHTML;
+    this.gridCopy = this.gridArray.slice(0);
+  }
+
   if (this.gridArray.length === 0) {
     const marginElements = document.querySelectorAll('.base-style-class');
     marginElements.forEach(function(element) {
@@ -221,7 +227,7 @@ Grid.prototype.generatePattern = function() {
 
   const cellElement = document.querySelector('[data-index="' + maxValue + '"]');
 
-  //cellElement.style.background = arrayColors[Math.floor(Math.random() * arrayColors.length)];
+
   const shape = this.shapeArray[Math.floor(Math.random() * this.shapeArray.length)];
 
   if (shape === 'blank' ) {
@@ -233,15 +239,23 @@ Grid.prototype.generatePattern = function() {
     cellElement.appendChild(quarter);
   }
   
+  this.pattenGenerationStarted = true;
 
   this.gridArray = this.gridArray.slice(0, cellIndex).concat(this.gridArray.slice(cellIndex + 1));
-  // cellElement.style.borderStyle = 'none';
-  // cellElement.parentNode.style.borderStyle = 'none'
-
 
   this.generatePattern();
 
 }
+
+Grid.prototype.reCreatePattern = function() {
+  // Main Algo + Business logic
+  this.pattenGenerationStarted = false;
+  this.gridArray = this.gridCopy.slice(0);
+  document.querySelector('.new-parent').innerHTML = this.gridDOMCOPY;
+  this.generatePattern()
+
+}
+
 
 window.onload = function() {
   window.grid = new Grid();

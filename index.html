@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Graficore</title>
+	<title>Graficore | Pattern creator</title>
 
 	<style>
+		.container-fluid {
+			padding: 10px 30px;
+      display: flex;
+		}
 		.square {
 		  width: 50%;
 		  height: 50%;
@@ -22,15 +26,26 @@
 		}
 
 		.settings-container {
-		  float: left;
-		  padding: 20px;
-		  width: 25%;
+		  //float: left;
+		  //width: 25%;
+      
+      margin-left: 14px;
+      flex: 1;
 		}
 
+    .weightages-container {
+      padding: 20px;
+      max-height: 310px;
+      overflow-y: scroll;
+      border: 1px solid #eaeaea;
+      box-shadow: 0px 0px 3px 0px #eaeaea;
+    }
+
 		.checkboxes {
-			float: left;
+			//float: left;
 			padding: 20px;
-			width: 25%
+			//width: 25%;
+      flex: 1;
 		}
 
 		.base-style-class {
@@ -167,97 +182,100 @@
    		</div>
 
 		<div class="settings-container">
-			<p class="range-field">
-				<label for="circle">Circle Weightage</label>
-			    <input type="range" value="1" id="circle" min="1" max="10" />
-			</p> 
+      <div class="weightages-container">
+        <h5>Adjust Weightages</h5>
+  			<p class="range-field">
+  				<label for="circle">Circle Weightage</label>
+  			    <input type="range" value="1" id="circle" min="1" max="10" />
+  			</p> 
 
-			<p class="range-field">
-				<label for="parallelogram1">Paralellogram 1</label>
-			    <input type="range" value="1" id="parallelogram1" min="1" max="10" />
-			</p> 
+  			<p class="range-field">
+  				<label for="parallelogram1">Paralellogram 1</label>
+  			    <input type="range" value="1" id="parallelogram1" min="1" max="10" />
+  			</p> 
 
-			<p class="range-field">
-				<label for="parallelogram2">Paralellogram 2</label>
-			    <input type="range" value="1" id="parallelogram2" min="1" max="10" />
-			</p> 
+  			<p class="range-field">
+  				<label for="parallelogram2">Paralellogram 2</label>
+  			    <input type="range" value="1" id="parallelogram2" min="1" max="10" />
+  			</p> 
 
-			<p class="range-field">
-				<label for="quarterTopLeft">quarterTopLeft </label>
-			    <input type="range" value="1" id="quarterTopLeft" min="1" max="10" />
-			</p> 
+  			<p class="range-field">
+  				<label for="quarterTopLeft">quarterTopLeft </label>
+  			    <input type="range" value="1" id="quarterTopLeft" min="1" max="10" />
+  			</p> 
 
-			<p class="range-field">
-				<label for="quarterTopRight">quarterTopRight </label>
-			    <input type="range" value="1" id="quarterTopRight" min="1" max="10" />
-			</p> 
+  			<p class="range-field">
+  				<label for="quarterTopRight">quarterTopRight </label>
+  			    <input type="range" value="1" id="quarterTopRight" min="1" max="10" />
+  			</p> 
 
-			<p class="range-field">
-				<label for="quarterBottomLeft">quarterBottomLeft</label>
-			    <input type="range" value="1" id="quarterBottomLeft" min="1" max="10" />
-			</p> 
+  			<p class="range-field">
+  				<label for="quarterBottomLeft">quarterBottomLeft</label>
+  			    <input type="range" value="1" id="quarterBottomLeft" min="1" max="10" />
+  			</p> 
 
-			<p class="range-field">
-				<label for="quarterBottomRight">quarterBottomRight</label>
-			    <input type="range" value="1" id="quarterBottomRight" min="1" max="10" />
-			</p> 
+  			<p class="range-field">
+  				<label for="quarterBottomRight">quarterBottomRight</label>
+  			    <input type="range" value="1" id="quarterBottomRight" min="1" max="10" />
+  			</p> 
 
-			<p class="range-field">
-				<label for="colorFill">color Fill</label>
-			    <input type="range" value="1" id="colorFill" min="1" max="10" />
-			</p> 
+  			<p class="range-field">
+  				<label for="colorFill">color Fill</label>
+  			    <input type="range" value="1" id="colorFill" min="1" max="10" />
+  			</p> 
 
-			<p class="range-field">
-				<label for="blank">Blank space weightage</label>
-			    <input type="range" value="1" id="blank" min="1" max="10" />
-			</p> 
+  			<p class="range-field">
+  				<label for="blank">Blank space weightage</label>
+  			    <input type="range" value="1" id="blank" min="1" max="10" />
+  			</p> 
+      </div>  
 		</div>
 
 		<div class="checkboxes">
 			<a class="waves-effect waves-light btn button">Generate Pattern</a>
 			<div class="download-btn"><a class="waves-effect waves-light btn download grey darken-3"">Save Pattern</a></div>
-				
-			<form action="#">
-			  <p>
-			    <input type="checkbox" id="circle-check" data-shape='circle' checked="true" name="circle" />
-			    <label for="circle-check">Circle</label>
-			  </p>
-			  <p>
-			    <input type="checkbox" id="parallelogram1-check" data-shape='parallelogram1' checked="true" />
-			    <label for="parallelogram1-check">Parallelogram 1</label>
-			  </p>
-			  <p>
-			    <input type="checkbox" id="parallelogram2-check" data-shape='parallelogram2' checked="true" />
-			    <label for="parallelogram2-check">Parallelogram 2</label>
-			  </p>
-			  <p>
-			   <input type="checkbox" id="quarterTopRight-check" data-shape='quarterTopRight' checked="true" />
-			    <label for="quarterTopRight-check">Top Right Quarter</label>
-			  </p>
-			  <p>
-			    <input type="checkbox" id="quarterTopLeft-check"  data-shape='quarterTopLeft' checked="true"/>
-			    <label for="quarterTopLeft-check">Top Left Quarter</label>
-			  </p>
-			  <p>
-			    <input type="checkbox" id="quarterBottomLeft-check" data-shape='quarterBottomLeft' checked="true" />
-			    <label for="quarterBottomLeft-check">Bottom Left Quarter</label>
-			  </p>
-			   <p>
-			    <input type="checkbox" id="quarterBottomRight-check"  data-shape='quarterBottomRight' checked="true"/>
-			    <label for="quarterBottomRight-check">Bottom Right Quarter</label>
-			  </p>
-				 <p>
-				  <input type="checkbox" id="colorFill-check" data-shape='colorFill' checked="true"/>
-				  <label for="colorFill-check">Color Fill</label>
-				</p>
+			<div>
+  			<form action="#">
+  			  <p>
+  			    <input type="checkbox" id="circle-check" data-shape='circle' checked="true" name="circle" />
+  			    <label for="circle-check">Circle</label>
+  			  </p>
+  			  <p>
+  			    <input type="checkbox" id="parallelogram1-check" data-shape='parallelogram1' checked="true" />
+  			    <label for="parallelogram1-check">Parallelogram 1</label>
+  			  </p>
+  			  <p>
+  			    <input type="checkbox" id="parallelogram2-check" data-shape='parallelogram2' checked="true" />
+  			    <label for="parallelogram2-check">Parallelogram 2</label>
+  			  </p>
+  			  <p>
+  			   <input type="checkbox" id="quarterTopRight-check" data-shape='quarterTopRight' checked="true" />
+  			    <label for="quarterTopRight-check">Top Right Quarter</label>
+  			  </p>
+  			  <p>
+  			    <input type="checkbox" id="quarterTopLeft-check"  data-shape='quarterTopLeft' checked="true"/>
+  			    <label for="quarterTopLeft-check">Top Left Quarter</label>
+  			  </p>
+  			  <p>
+  			    <input type="checkbox" id="quarterBottomLeft-check" data-shape='quarterBottomLeft' checked="true" />
+  			    <label for="quarterBottomLeft-check">Bottom Left Quarter</label>
+  			  </p>
+  			   <p>
+  			    <input type="checkbox" id="quarterBottomRight-check"  data-shape='quarterBottomRight' checked="true"/>
+  			    <label for="quarterBottomRight-check">Bottom Right Quarter</label>
+  			  </p>
+  				 <p>
+  				  <input type="checkbox" id="colorFill-check" data-shape='colorFill' checked="true"/>
+  				  <label for="colorFill-check">Color Fill</label>
+  				</p>
 
-				 <p>
-				  <input type="checkbox" id="blank-check" data-shape='blank' checked="true" />
-				  <label for="blank-check">Blank</label>
-				</p>
+  				 <p>
+  				  <input type="checkbox" id="blank-check" data-shape='blank' checked="true" />
+  				  <label for="blank-check">Blank</label>
+  				</p>
 
-			</form>
-
+  			</form>
+      </div>
 			<div class="color-picker">
 				<a class="waves-effect waves-light btn add-color-picker">Add A Color</a>
 
