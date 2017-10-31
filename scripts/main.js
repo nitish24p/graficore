@@ -54,21 +54,14 @@ function Grid () {
   this.colorPickerList = document.querySelector('.color-picker');
   this.downloadBtn = document.querySelector('.download');
   this.recreateBtn = document.querySelector('.recreate');
+  this.newGridBtn = document.querySelector('.new');
 
 }
 
 
 Grid.prototype.init = function() {
-  const parentGrid = document.querySelector('.new-parent');
-  const self = this;
-  
-  this.gridArray.forEach(function(element) {
-    const childGridElement = document.createElement('div');
-    childGridElement.dataset.index = element;
-    childGridElement.className = 'square';
-    childGridElement.addEventListener('click', self.clickCell.bind(self));
-    parentGrid.appendChild(childGridElement);
-  })
+
+  this.setUpGrid.call(this);
   // Create 4 divs here based on array
 
 
@@ -100,6 +93,27 @@ Grid.prototype.init = function() {
   this.downloadBtn.addEventListener('click', this.downloadImage.bind(this));
   this.recreateBtn.addEventListener('click', this.reCreatePattern.bind(this));
   this.generatePatternButton.addEventListener('click', this.generatePattern.bind(this));
+  this.newGridBtn.addEventListener('click', this.createNewGrid.bind(this));
+}
+
+Grid.prototype.setUpGrid = function() {
+  const parentGrid = document.querySelector('.new-parent');
+  const self = this;
+  
+  this.gridArray.forEach(function(element) {
+    const childGridElement = document.createElement('div');
+    childGridElement.dataset.index = element;
+    childGridElement.className = 'square';
+    childGridElement.addEventListener('click', self.clickCell.bind(self));
+    parentGrid.appendChild(childGridElement);
+  })
+}
+
+Grid.prototype.createNewGrid = function() {
+  this.generatePatternButton.classList.remove("disabled");
+  this.gridArray = [ 1, 2, 3, 4];
+  document.querySelector('.new-parent').innerHTML = '';
+  this.setUpGrid.call(this);
 }
 
 Grid.prototype.downloadImage = function() {
@@ -208,6 +222,17 @@ Grid.prototype.clickCell = function(event) {
 
 Grid.prototype.generatePattern = function() {
   // Main Algo + Business logic
+
+  if (document.querySelectorAll('.base-style-class').length === 0) {
+    Materialize.toast('Click and create your grid', 4000);
+    return; 
+  }
+
+  if (this.colorArray.length === 0) {
+    Materialize.toast('Please select atleast 1 color', 4000);
+    return; 
+  }
+
   if (!this.pattenGenerationStarted) {
     this.gridDOMCOPY = document.querySelector('.new-parent').innerHTML;
     this.gridCopy = this.gridArray.slice(0);
@@ -220,7 +245,10 @@ Grid.prototype.generatePattern = function() {
       element.style.borderStyle = 'none';
     });
 
-    this.generatePatternButton.className += ' disabled';
+    if (!this.generatePatternButton.classList.contains("disabled")) {
+      this.generatePatternButton.className += ' disabled';
+    }
+
     this.recreateBtn.parentNode.removeAttribute('hidden');
     return;
   }
@@ -269,18 +297,4 @@ function countInArray(array, value) {
   return array.reduce((n, x) => n + (x === value), 0);
 }
 
-// DOWNLOAD
-/*
-domtoimage.toPng(node)
-.then(function(dataUrl){
-      const link = document.createElement('a')
-      link.download = 'graficore.png'
-      link.href = dataUrl
-      document.body.appendChild(link)
-      link.click()
-      link.remove()
-
-
-})
-*/
 

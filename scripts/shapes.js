@@ -2,7 +2,7 @@ function shapeGenerator() {
 
 }
 
-shapeGenerator.prototype.circle= function(backgroundColor) {
+shapeGenerator.prototype.circle = function(backgroundColor) {
   const circleElement = document.createElement("div");
   circleElement.style.width = '100%';
   circleElement.style.height = '100%';
