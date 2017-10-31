@@ -34,7 +34,7 @@ function Grid () {
   this.quarterBottomRightSlider = document.querySelector('#quarterBottomRight');
   this.blankSlider = document.querySelector('#blank');
   this.colorFillSlider = document.querySelector('#colorFill');
-
+  this.generatePatternButton = document.querySelector('.button');
   /*Color DOM ELEMENT */
 
 
@@ -53,7 +53,7 @@ function Grid () {
   this.addColorPicker = document.querySelector('.add-color-picker');
   this.colorPickerList = document.querySelector('.color-picker');
   this.downloadBtn = document.querySelector('.download');
-
+  this.recreateBtn = document.querySelector('.recreate');
 
 }
 
@@ -61,8 +61,7 @@ function Grid () {
 Grid.prototype.init = function() {
   const parentGrid = document.querySelector('.new-parent');
   const self = this;
-  this.buttonElement = document.querySelector('.button');
-  this.buttonElement.addEventListener('click', this.generatePattern.bind(this));
+  
   this.gridArray.forEach(function(element) {
     const childGridElement = document.createElement('div');
     childGridElement.dataset.index = element;
@@ -99,6 +98,8 @@ Grid.prototype.init = function() {
 
   this.addColorPicker.addEventListener('click', this.addColor.bind(this));
   this.downloadBtn.addEventListener('click', this.downloadImage.bind(this));
+  this.recreateBtn.addEventListener('click', this.reCreatePattern.bind(this));
+  this.generatePatternButton.addEventListener('click', this.generatePattern.bind(this));
 }
 
 Grid.prototype.downloadImage = function() {
@@ -215,10 +216,12 @@ Grid.prototype.generatePattern = function() {
   if (this.gridArray.length === 0) {
     const marginElements = document.querySelectorAll('.base-style-class');
     marginElements.forEach(function(element) {
-      //console.log(element.style)
       element.style.margin = '0px';
       element.style.borderStyle = 'none';
-    })
+    });
+
+    this.generatePatternButton.className += ' disabled';
+    this.recreateBtn.parentNode.removeAttribute('hidden');
     return;
   }
 

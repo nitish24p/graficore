@@ -25,7 +25,7 @@
 		  float: left
 		}
 
-		.settings-container {
+		.settings-container, .shape-selector-container {
 		  //float: left;
 		  //width: 25%;
       
@@ -33,21 +33,27 @@
       flex: 1;
 		}
 
-    .weightages-container {
+    .weightages-container, .checkboxes  {
       padding: 20px;
       max-height: 310px;
       overflow-y: scroll;
-      border: 1px solid #eaeaea;
-      box-shadow: 0px 0px 3px 0px #eaeaea;
     }
 
-		.checkboxes {
-			//float: left;
-			padding: 20px;
-			//width: 25%;
-      flex: 1;
-		}
+    .custom-card {
+      padding: 20px;
+      box-shadow: 0px 0px 3px 0px #eaeaea;
+      border: 1px solid #eaeaea;;
+    }
 
+    .action-btn-container, .color-picker-container {
+      margin-top : 20px;
+    }
+
+    .color-picker-container {
+      max-height: 260px;
+      overflow: scroll;
+      margin-top : 20px;
+    }
 		.base-style-class {
 		  display: inline-block;
 		  float:left;
@@ -166,6 +172,14 @@
 			margin-top: 10px
 		}
 
+    .full-width {
+      width: 100%;
+    }
+
+    h5 {
+      color: #6f6f6f;
+    }
+
 	</style>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 </head>
@@ -182,7 +196,7 @@
    		</div>
 
 		<div class="settings-container">
-      <div class="weightages-container">
+      <div class="weightages-container custom-card">
         <h5>Adjust Weightages</h5>
   			<p class="range-field">
   				<label for="circle">Circle Weightage</label>
@@ -228,13 +242,19 @@
   				<label for="blank">Blank space weightage</label>
   			    <input type="range" value="1" id="blank" min="1" max="10" />
   			</p> 
+      </div>
+
+      <div class="custom-card action-btn-container">
+        <h5>Actions</h5>
+        <a class="waves-effect waves-light btn button full-width">Generate Pattern</a>
+        <div class="download-btn"><a class="waves-effect waves-light btn download grey darken-3 full-width"">Save Pattern</a></div>
+        <div hidden class="download-btn"><a class="waves-effect waves-light btn recreate grey darken-3 full-width"">Recreate Pattern</a></div>
       </div>  
 		</div>
 
-		<div class="checkboxes">
-			<a class="waves-effect waves-light btn button">Generate Pattern</a>
-			<div class="download-btn"><a class="waves-effect waves-light btn download grey darken-3"">Save Pattern</a></div>
-			<div>
+		<div class="shape-selector-container">
+			<div class="checkboxes custom-card">
+        <h5>Select shapes</h5>
   			<form action="#">
   			  <p>
   			    <input type="checkbox" id="circle-check" data-shape='circle' checked="true" name="circle" />
@@ -276,10 +296,13 @@
 
   			</form>
       </div>
-			<div class="color-picker">
-				<a class="waves-effect waves-light btn add-color-picker">Add A Color</a>
+      <div class="custom-card color-picker-container">
+        <div class="color-picker">
+          <h5> Select a few colors</h5>
+          <a class="waves-effect waves-light btn add-color-picker full-width">Add A Color</a>
 
-			</div>
+        </div>
+      </div>
 		</div>
 		
 	</div>
