@@ -1,0 +1,20 @@
+{
+  "name": "graficore",
+  "version": "1.0.0",
+  "description": "Create awesome patterns using simple shapes and a quad tree",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nitish24p/graficore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nitish24p/graficore/issues"
+  },
+  "homepage": "https://github.com/nitish24p/graficore#readme"
+}
