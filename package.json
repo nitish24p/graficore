@@ -10,6 +10,9 @@
     "heroku-postbuild": "npm run build-client-prod && npm run build-server-prod",
     "start": "node_modules/.bin/pm2 start server/pm2_config.json --watch && node_modules/.bin/webpack --config=webpack/webpack.config.js --watch"
   },
+  "engines": {
+    "node": "6.11.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nitish24p/graficore.git"
