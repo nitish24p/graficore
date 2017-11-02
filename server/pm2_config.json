@@ -1,0 +1,15 @@
+{
+  "apps" : [{
+    "name"        : "Graficore",
+    "script"      : "./server/server.js",
+    "exec_mode"   : "fork",
+    "instances" : 1,
+    "exec_interpreter" : "node_modules/.bin/babel-node",
+    "merge_logs" :true,
+    "env": {
+      "PORT": 7770,
+      "MONITORING": false,
+      "NODE_ENV" : "development"
+    },
+  }]
+}

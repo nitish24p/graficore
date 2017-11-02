@@ -1,5 +1,14 @@
 'use strict';
 
+const shapeGenerator = require('./shapes.js');
+require('jquery');
+require('materialize-css');
+//import materialize-css from 'materialize-css'
+require('./jscolor.min.js');
+require('./../styles/index.scss');
+
+import domtoimage from 'dom-to-image';
+
 const arrayColors = ['#39f7ed', '#2e0087', '#fff', '#8af5ef',
   '#aaefeb', '#9e6ef9', '#eaeaea', '#7f45ec',
   '#def3f2', '#cebaf5'
@@ -288,13 +297,10 @@ Grid.prototype.reCreatePattern = function() {
 }
 
 
-window.onload = function() {
-  window.grid = new Grid();
-  grid.init()
-};
-
 function countInArray(array, value) {
   return array.reduce((n, x) => n + (x === value), 0);
 }
 
+
+export default Grid;
 

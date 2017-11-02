@@ -1,3 +1,5 @@
+'use strict';
+
 function shapeGenerator() {
 
 }
@@ -87,3 +89,5 @@ shapeGenerator.prototype.colorPicker = function() {
 
   return colorPicker;
 }
+
+module.exports = shapeGenerator;
