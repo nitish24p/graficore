@@ -27,11 +27,11 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
-            options: {
-              babelrc: false,
-              presets: [require.resolve('babel-preset-react-app')],
-              cacheDirectory: true,
-            }
+            // options: {
+            //   babelrc: false,
+            //   presets: [require.resolve('babel-preset-react-app')],
+            //   cacheDirectory: true,
+            // }
           }
         ],
         test: /\.js$/,
