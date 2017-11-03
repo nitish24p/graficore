@@ -25,6 +25,9 @@ app.use('/css/?',
 app.use('/icons/?',
   express.static(path.join(__dirname, './../src/assets'), { maxAge: cacheTime }));
 
+app.use('/assets/?',
+  express.static(path.join(__dirname, './../src/assets'), { maxAge: cacheTime }));
+
 
 // For Home page
 app.get('/', (req, res) => res.send(renderStaticMarkup(req)));
