@@ -1,9 +1,9 @@
-import ActionButton from './../components/ActionButton.js';
-import ColorPicker from './../components/ColorPicker.js';
-import Header from './../components/Header.js';
-import Checkbox from './../components/Checkbox.js';
-import Card from './../components/Card.js';
-import Slider from './../components/Slider.js';
+import ActionButton from './../Components/ActionButton.js';
+import ColorPicker from './../Components/ColorPicker.js';
+import Header from './../Components/Header.js';
+import Checkbox from './../Components/Checkbox.js';
+import Card from './../Components/Card.js';
+import Slider from './../Components/Slider.js';
 
 import React, { Component } from 'react';
 
