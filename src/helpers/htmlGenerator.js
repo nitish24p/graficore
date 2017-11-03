@@ -47,8 +47,14 @@ export function renderStaticMarkup(request: Object) {
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
         <link rel="shortcut icon" href="/icons/favicon.ico"  />
+
+        <meta property="og:description" content="Graficore | Create patterns with basics shapes and a Quadtree grid">
+        <meta property="og:url" content="https://graficore.herokuapp.com/">
+        <meta property="og:site_name" content="Graficore">
+        <meta property="og:image" content="/assets/art_v2.png">
+        <meta property="og:type" content="website">
 
           ${renderCss()}
         <link rel="preload" as="script" href="/js/${manifestJsSrc}">
