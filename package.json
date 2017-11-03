@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-client-prod": "NODE_ENV='production' node_modules/.bin/webpack --config=webpack/webpack.prod.config.js -p",
     "build-server-prod": "NODE_ENV='production' node_modules/.bin/webpack --config=webpack/webpack.server.config.js -p",
-    "heroku-postbuild": "yarn run build-client-prod && yarn run build-server-prod",
+    "heroku-postbuild": "yarn run build-client-prod",
     "start": "node_modules/.bin/pm2 start server/pm2_config.json --watch && node_modules/.bin/webpack --config=webpack/webpack.config.js --watch"
   },
   "engines": {
