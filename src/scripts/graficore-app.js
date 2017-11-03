@@ -1,12 +1,11 @@
 'use strict';
 
-const shapeGenerator = require('./shapes.js');
 require('jquery');
 require('materialize-css');
-//import materialize-css from 'materialize-css'
 require('./jscolor.min.js');
 require('./../styles/index.scss');
 
+const shapeGenerator = require('./shapes.js');
 import domtoimage from 'dom-to-image';
 
 const arrayColors = ['#39f7ed', '#2e0087', '#fff', '#8af5ef',
@@ -168,9 +167,6 @@ Grid.prototype.onCheckBoxChecked = function(event) {
     sliderElement.parentNode.removeAttribute('hidden');
     this.shapeArray = this.shapeArray.concat([shape]);
   } else {
-    if (this.shapeArray.length === 1) {
-      // SHOW DOM ELEMENT TO SHOW ATLEAST 1 shape
-    }
     sliderElement.parentNode.setAttribute('hidden', 'true');
     this.shapeArray = this.shapeArray.filter(function(existingElement) {
       return existingElement !== shape;
@@ -220,7 +216,6 @@ Grid.prototype.clickCell = function(event) {
     childElem.style.borderStyle = 'solid';
     childElem.style.borderColor = 'rgb(212, 212, 212)';
     childElem.dataset.index = newArray[i];
-    //childElem.style.background = arrayColors[Math.floor(Math.random() * arrayColors.length)];
     childElem.addEventListener('click', this.clickCell.bind(this));
 
     event.target.appendChild(childElem)
@@ -239,6 +234,11 @@ Grid.prototype.generatePattern = function() {
 
   if (this.colorArray.length === 0) {
     Materialize.toast('Please select atleast 1 color', 4000);
+    return; 
+  }
+
+  if(this.shapeArray.length === 0) {
+    Materialize.toast('Please select atleast 1 shape', 4000);
     return; 
   }
 

@@ -47,15 +47,15 @@ class Home extends Component<{}, {}> {
           <div className="shape-selector-container">
             <div className="checkboxes custom-card">
               <Card heading="Select shapes">
-                <Checkbox id='circle-check' label='Circle weightage' checked={true}/>
-                <Checkbox id='parallelogram1-check' label='Paralellogram 1' checked={true}/>
-                <Checkbox id='parallelogram2-check' label='Paralellogram 2' checked={true}/>
-                <Checkbox id='quarterTopLeft-check' label='Top left quarter ring' checked={true}/>
-                <Checkbox id='quarterTopRight-check' label='Top right quarter ring' checked={true}/>
-                <Checkbox id='quarterBottomLeft-check' label='Bottom left quarter ring' checked={true}/>
-                <Checkbox id='quarterBottomRight-check' label='Bottom left quarter ring' checked={true}/>
-                <Checkbox id='colorFill-check' label='Color Fill ' checked={true}/>
-                <Checkbox id='blank-check' label='Blank' checked={true}/>
+                <Checkbox id='circle' label='Circle weightage' checked={true}/>
+                <Checkbox id='parallelogram1' label='Paralellogram 1' checked={true}/>
+                <Checkbox id='parallelogram2' label='Paralellogram 2' checked={true}/>
+                <Checkbox id='quarterTopLeft' label='Top left quarter ring' checked={true}/>
+                <Checkbox id='quarterTopRight' label='Top right quarter ring' checked={true}/>
+                <Checkbox id='quarterBottomLeft' label='Bottom left quarter ring' checked={true}/>
+                <Checkbox id='quarterBottomRight' label='Bottom left quarter ring' checked={true}/>
+                <Checkbox id='colorFill' label='Color Fill ' checked={true}/>
+                <Checkbox id='blank' label='Blank' checked={true}/>
               </Card>
             </div>
 
