@@ -29,6 +29,23 @@ function renderCss() {
   }
 }
 
+
+function addGa() {
+  if (process.env.NODE_ENV === 'production') {
+    return `
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109146310-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-109146310-1');
+      </script>
+    `;
+  }
+}
+
 export function renderStaticMarkup(request: Object) {
   const context = {};
   const markup = ReactDOMServer.renderToString(
@@ -49,7 +66,7 @@ export function renderStaticMarkup(request: Object) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
         <link rel="shortcut icon" href="/icons/favicon.ico"  />
-
+          ${addGa()}
         <meta property="og:description" content="Graficore | Create patterns with basics shapes and a Quadtree grid">
         <meta property="og:url" content="https://graficore.herokuapp.com/">
         <meta property="og:site_name" content="Graficore">
