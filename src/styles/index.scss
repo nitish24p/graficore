@@ -178,12 +178,22 @@ h5 {
 @media screen and (max-width: 480px) {
   .container-fluid {
     flex-direction: column;
+    padding: 10px;
   }
   .new-parent {
     width: 360px;
     height: 360px;
+    flex: 1;
+    margin: auto;
   }
   .weightages-container, .shape-selector-container {
     margin-top: 20px
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .new-parent {
+    width: 320px;
+    height: 320px;
   }
 }
