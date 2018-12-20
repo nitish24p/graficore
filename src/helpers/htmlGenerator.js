@@ -43,6 +43,8 @@ function addGa() {
         gtag('config', 'UA-109146310-1');
       </script>
     `;
+  } else {
+    return '';
   }
 }
 
