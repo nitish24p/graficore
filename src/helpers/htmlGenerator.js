@@ -43,7 +43,7 @@ function addGa() {
         gtag('config', 'UA-109146310-1');
       </script>
     `;
-  }
+  } else return ''
 }
 
 export function renderStaticMarkup(request: Object) {
@@ -72,7 +72,6 @@ export function renderStaticMarkup(request: Object) {
         <meta property="og:site_name" content="Graficore">
         <meta property="og:image" content="/assets/art_v2.png">
         <meta property="og:type" content="website">
-
           ${renderCss()}
         <link rel="preload" as="script" href="/js/${manifestJsSrc}">
         <link rel="preload" as="script" href="/js/${vendorJsSrc}">

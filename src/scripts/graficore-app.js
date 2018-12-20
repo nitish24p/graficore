@@ -275,7 +275,7 @@ Grid.prototype.generatePattern = function() {
   } else if (shape === 'colorFill') {
     cellElement.style.background = this.colorArray[Math.floor(Math.random() * this.colorArray.length)];
   } else {
-    const quarter = this.shape[shape](this.colorArray[Math.floor(Math.random() * this.colorArray.length)]);
+    const quarter = this.shape[shape](this.colorArray[Math.floor(Math.random() * this.colorArray.length)], cellElement);
     cellElement.appendChild(quarter);
   }
   
