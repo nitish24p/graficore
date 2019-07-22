@@ -13,7 +13,7 @@
     "now-build": "yarn run heroku-postbuild"
   },
   "engines": {
-    "node": "8.10.0"
+    "node": "8.11.3"
   },
   "repository": {
     "type": "git",
