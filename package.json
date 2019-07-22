@@ -12,6 +12,9 @@
     "now-start": "node dist/compiled-server.js",
     "now-build": "yarn run heroku-postbuild"
   },
+  "engines": {
+    "node": "8.10.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nitish24p/graficore.git"
